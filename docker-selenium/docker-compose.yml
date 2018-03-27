@@ -1,0 +1,12 @@
+version: '3.0'
+services:
+  app:
+    image: selenium/hub:3.6.0-bromine
+    container_name: selenium-hub
+    restart: always
+    ports:
+      - "4444:4444"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      TZ: Asia/Tokyo
