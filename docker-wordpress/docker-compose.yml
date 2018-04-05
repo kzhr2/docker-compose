@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  app:
+    image: wordpress:latest
+    container_name: wordpress-ap
+    env_file: app.env
+    restart: always
+    ports:
+      - "8090:80"
+    depends_on:
+      - db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      WORDPRESS_DB_HOST: "db:3306"
+      TZ: Asia/Tokyo
+  db:
+    image: mysql:latest
+    container_name: wordpress-db
+    env_file: db.env
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - db-data:/var/lib/mysql
+    environment:
+      TZ: Asia/Tokyo
+volumes:
+  db-data:
