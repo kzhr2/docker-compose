@@ -10,6 +10,7 @@
  
  ### ※volume directory path
   /var/lib/docker/volumes/wordpress-db-data
+  
   /var/lib/docker/volumes/wordpress-app-contents
   
 ---
