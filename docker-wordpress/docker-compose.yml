@@ -12,6 +12,7 @@ services:
       - db
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - app-contents:/var/www/html/wp-content
     environment:
       WORDPRESS_DB_HOST: "db:3306"
       TZ: Asia/Tokyo
@@ -26,4 +27,7 @@ services:
     environment:
       TZ: Asia/Tokyo
 volumes:
+  app-contents:
+    name: wordpress-app-contents
   db-data:
+    name: wordpress-db-data
